@@ -7,8 +7,9 @@ variable "aws_region" {
 variable "ecs_cluster_name" {
   description = "Name of the ECS cluster"
   type        = string
-
+  default     = "second_cluster"
 }
+
 
 variable "capacity_providers" {
   description = "List of ECS capacity providers (e.g., FARGATE, FARGATE_SPOT)"
