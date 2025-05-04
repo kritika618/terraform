@@ -1,28 +1,41 @@
-variable "cluster_name" {
-  description = "The name of the ECS cluster"
-  type        = string
-  default     = "second_cluster"
+variable "aws_region" {
+  default = "ap-south-1"
 }
 
-variable "services" {
-  description = "Map of ECS services with configuration"
-  type = map(object({
-    memory = number
-    container_definitions = map(object({
-      image     = string
-      essential = bool
-      port_mappings = list(object({
-        containerPort = number
-        protocol      = string
-      }))
-    }))
-    subnet_ids = list(string)
-    security_group_rules = map(object({
-      type        = string
-      from_port   = number
-      to_port     = number
-      protocol    = string
-      cidr_blocks = list(string)
-    }))
-  }))
+variable "cluster_name" {
+  default = "second-ecs-tf-cluster"
+}
+
+variable "project_name" {
+  default = "myapp"
+}
+
+variable "container_image" {
+  description = "Docker image URL"
+  type        = string
+}
+
+variable "container_port" {
+  default = 80
+}
+
+variable "cpu" {
+  default = 256
+}
+
+variable "memory" {
+  default = 512
+}
+
+variable "execution_role_arn" {
+  description = "IAM role ARN for ECS task execution"
+  type        = string
+}
+
+variable "subnet_ids" {
+  type = list(string)
+}
+
+variable "security_group_id" {
+  type = string
 }
