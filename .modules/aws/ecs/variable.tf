@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "ecs_cluster_name" {
   description = "Name of the ECS cluster"
   type        = string
-  default     = "second_cluster"
+  default     = " "
 }
 
 
@@ -26,7 +26,7 @@ variable "default_capacity_provider" {
 variable "environment" {
   description = "Environment tag (e.g., dev, staging, prod)"
   type        = string
-  default     = "dev"
+  default     = " "
 }
 
 variable "project_name" {
